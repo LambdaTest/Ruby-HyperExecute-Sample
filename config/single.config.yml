@@ -1,0 +1,17 @@
+server: "hub.lambdatest.com"
+user: "mayurp"
+key: "y1BYjotgPNHSRbRXuh1wndsTPgYFvSWokaWQxINfrErF6P7ijE"
+
+common_caps:
+  "build": "RSpec Selenium Demo"
+
+browser_caps:
+  -
+    "LT:Options":
+      "browserName": "chrome"
+      "version": "95"
+      # "platform": "Windows 10"
+      "platform": "MacOS Catalina"
+      "selenium_version": "4.0.0"
+      "name": "RSpec HyperTest Test"
+      "build": "RSpec HyperTest Demo"
