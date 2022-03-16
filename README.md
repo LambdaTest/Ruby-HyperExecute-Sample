@@ -278,6 +278,8 @@ steps:
 1. Open HyperExecute Dashboard  
 2. Click on Secrets
 3. Add Secrets with Name as AccessKey
+
+
 All you need to do is create an environment variable that uses the secret key:
 
 ```yaml
