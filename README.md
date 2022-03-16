@@ -278,6 +278,8 @@ steps:
 1. Open HyperExecute Dashboard  
 2. Click on Secrets
 3. Add Secrets with Name as AccessKey
+
+
 All you need to do is create an environment variable that uses the secret key:
 
 ```yaml
@@ -290,11 +292,11 @@ env:
 In case you want to generate hypertest report you can use below yaml directives and you can download report from button on dashboard and also you will find report under your frameWork also.
 
 
-All you need to do is create an environment variable that uses the secret key:
-
 ```yaml
-env:
-  AccessKey: ${{.secrets.AccessKey}}
+report: true
+partialReports:
+ location: rspec_results.html
+ type: html
 ```
 
 ## Navigation in Automation Dashboard
