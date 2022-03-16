@@ -10,7 +10,7 @@ maxRetries: 5
 concurrency: 2
 testDiscovery:
   type: raw
-  mode: static
+  mode: dynamic
   command: grep -nri -E 'it ".*." do' spec/*.rb | awk '{print$1}' | sed 's/\(.*\):/\1 /'
 testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
 pre:
