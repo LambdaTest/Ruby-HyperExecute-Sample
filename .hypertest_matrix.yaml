@@ -1,7 +1,7 @@
 ---
 version: "0.1"
 matrix:
-  os: [mac]
+  os: [win]
   files: ["spec/todo_test1.rb", "spec/todo_test2.rb"]
 runson: ${matrix.os}
 testSuites:

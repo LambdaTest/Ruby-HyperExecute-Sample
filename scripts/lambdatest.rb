@@ -14,7 +14,7 @@ RSpec.configure do |config|
     @caps["name"] = ENV['name'] || example.metadata[:name] || example.metadata[:file_path].split('/').last.split('.').first
 
     @driver = Selenium::WebDriver.for(:remote,:url => "https://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",:capabilities => @caps)
-
+    @wait = Selenium::WebDriver::Wait.new(:timeout => 15)
     begin
       example.run
     ensure
