@@ -90,17 +90,17 @@ testSuiteStep: 90
 
 Global timeout, testSuite timeout, and testSuite timeout are set to 90 minutes.
 
-The target platform is set to Windows. Please set the *[runson]* key to *[mac]* if the tests have to be executed on the macOS platform.
+The target platform is set to Windows. Please set the *[runson]* key to *[win]* if the tests have to be executed on the macOS platform.
 
 ```yaml
-runson: mac
+runson: win
 ```
 
 Ruby-Rspecs Specs files in the 'Specss' folder contain the Specs Scenario run on the HyperExecute grid. In the example, the Specs file *Specss/ToDo.Specs* run in parallel on the basis of scenario by using the specified input combinations.
 
 ```yaml
 matrix:
-  os: [mac]
+  os: [win]
   files: ["spec/todo_test1.rb", "spec/todo_test2.rb"]
 
 ```
@@ -184,7 +184,7 @@ Global timeout, testSuite timeout, and testSuite timeout are set to 90 minutes.
 The *runson* key determines the platform (or operating system) on which the tests are executed. Here we have set the target OS as Windows.
 
 ```yaml
-runson: mac
+runson: win
 ```
 
 Auto-split is set to true in the YAML file.
