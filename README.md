@@ -112,6 +112,7 @@ testSuites:
   - bundle exec rspec "$files" --format html --out rspec_results.html
 ```
 
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/76988093/160459947-dd3619ee-742a-431a-8226-67b94fee5b58.png">
 
 
 
