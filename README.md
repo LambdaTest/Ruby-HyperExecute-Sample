@@ -112,6 +112,9 @@ testSuites:
   - bundle exec rspec "$files" --format html --out rspec_results.html
 ```
 
+
+
+
 ### Pre Steps and Dependency Caching
 
 Dependency caching is enabled in the YAML file to ensure that the package dependencies are not downloaded in subsequent runs. The first step is to set the Key used to cache directories.
@@ -134,6 +137,8 @@ pre:
   - bundle install --deployment
 ```
 
+<img width="1437" alt="image" src="https://user-images.githubusercontent.com/76988093/160451959-51b03200-9776-4b86-98ea-850e8f5dd3da.png">
+
 
 ### Artefacts Management
 
@@ -151,6 +156,9 @@ uploadArtefacts:
 ```
 
 HyperExecute also facilitates the provision to download the artefacts on your local machine. To download the artefacts, click on Artefacts button corresponding to the associated TestID.
+
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/76988093/160451835-5b15b142-de9b-4f67-b68b-586043b53eb1.png">
+
 
 ## Test Execution
 
@@ -241,6 +249,8 @@ The *testRunnerCommand* contains the command that is used for triggering the tes
 testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
 ```
 
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/76988093/160451685-5fd586a2-910b-4d75-929c-6e4d78e7825b.png">
+
 ### Artefacts Management
 
 The *mergeArtifacts* directive (which is by default *false*) is set to *true* for merging the artefacts and combing artefacts generated under each task.
@@ -257,6 +267,9 @@ uploadArtefacts:
 
 ```
 HyperExecute also facilitates the provision to download the artefacts on your local machine. To download the artefacts, click on *Artefacts* button corresponding to the associated TestID.
+
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/76988093/160451835-5b15b142-de9b-4f67-b68b-586043b53eb1.png">
+
 
 ### Test Execution
 
@@ -287,6 +300,7 @@ env:
   AccessKey: ${{.secrets.AccessKey}}
 ```
 
+
 ## Report Generation
 
 In case you want to generate hypertest report you can use below yaml directives and you can download report from button on dashboard and also you will find report under your frameWork also.
@@ -298,6 +312,9 @@ partialReports:
  location: rspec_results.html
  type: html
 ```
+
+<img width="1434" alt="image" src="https://user-images.githubusercontent.com/76988093/160452546-4098d8dc-a2d3-45d1-ba18-b559209e4650.png">
+
 
 ## Navigation in Automation Dashboard
 
