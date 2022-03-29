@@ -327,5 +327,3 @@ HyperExecute lets you navigate from/to *Test Logs* in Automation Dashboard from/
 * HyperExecute HomePage: https://www.lambdatest.com/support/docs/getting-started-with-hypertest/
 * Lambdatest HomePage: https://www.lambdatest.com
 
-## License
-Licensed under the [MIT license](LICENSE).
