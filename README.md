@@ -274,7 +274,7 @@ HyperExecute also facilitates the provision to download the artefacts on your lo
 
 ### Test Execution
 
-The CLI option *--config* is used for providing the custom HyperExecute YAML file (i.e. *hypertest_matrix.yaml*). Run the following command on the terminal to trigger the tests in Python files on the HyperExecute grid. The *--download-artifacts* option is used to inform HyperExecute to download the artefacts for the job.
+The CLI option *--config* is used for providing the custom HyperExecute YAML file (i.e. *hypertest_matrix.yaml*). Run the following command on the terminal to trigger the tests in Ruby files on the HyperExecute grid. The *--download-artifacts* option is used to inform HyperExecute to download the artefacts for the job.
 
 ```bash
 ./concierge --config --verbose -i .hypertest_matrix.yaml
