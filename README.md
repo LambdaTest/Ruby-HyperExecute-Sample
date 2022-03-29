@@ -16,14 +16,14 @@ To know more about how HyperExecute does intelligent Test Orchestration, do chec
    - [Download Concierge](#download-concierge)
    - [Configure Environment Variables](#configure-environment-variables)
 
-* [Matrix Execution with PyTest](#matrix-execution-with-pytest)
+* [Matrix Execution with Ruby](#matrix-execution-with-ruby)
    - [Core](#core)
    - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching)
    - [Post Steps](#post-steps)
    - [Artefacts Management](#artefacts-management)
    - [Test Execution](#test-execution)
 
-* [Auto-Split Execution with PyTest](#auto-split-execution-with-pytest)
+* [Auto-Split Execution with Ruby](#auto-split-execution-with-ruby)
    - [Core](#core-1)
    - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching-1)
    - [Post Steps](#post-steps-1)
