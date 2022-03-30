@@ -10,20 +10,20 @@ The overall experience helps teams test code and fix issues at a much faster pac
 
 To know more about how HyperExecute does intelligent Test Orchestration, do check out [HyperExecute Getting Started Guide](https://www.lambdatest.com/support/docs/getting-started-with-hypertest/)
 
-# How to run Selenium automation tests on HyperExecute (using WbdriverIO framework)
+# How to run Selenium automation tests on HyperExecute (using Ruby-Rspec framework)
 
 * [Pre-requisites](#pre-requisites)
    - [Download Concierge](#download-concierge)
    - [Configure Environment Variables](#configure-environment-variables)
 
-* [Matrix Execution with PyTest](#matrix-execution-with-pytest)
+* [Matrix Execution with Ruby](#matrix-execution-with-ruby-rspec-framework)
    - [Core](#core)
    - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching)
    - [Post Steps](#post-steps)
    - [Artefacts Management](#artefacts-management)
    - [Test Execution](#test-execution)
 
-* [Auto-Split Execution with PyTest](#auto-split-execution-with-pytest)
+* [Auto-Split Execution with Ruby](#auto-split-execution-with-ruby-rspec-framework)
    - [Core](#core-1)
    - [Pre Steps and Dependency Caching](#pre-steps-and-dependency-caching-1)
    - [Post Steps](#post-steps-1)
@@ -72,7 +72,7 @@ set LT_USERNAME=LT_USERNAME
 set LT_ACCESS_KEY=LT_ACCESS_KEY
 ```
 
-# Matrix Execution with PyTest
+# Matrix Execution with Ruby-Rspec framework
 
 Matrix-based test execution is used for running the same tests across different test (or input) combinations. The Matrix directive in HyperExecute YAML file is a *key:value* pair where value is an array of strings.
 
@@ -112,6 +112,10 @@ testSuites:
   - bundle exec rspec "$files" --format html --out rspec_results.html
 ```
 
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/76988093/160459947-dd3619ee-742a-431a-8226-67b94fee5b58.png">
+
+
+
 ### Pre Steps and Dependency Caching
 
 Dependency caching is enabled in the YAML file to ensure that the package dependencies are not downloaded in subsequent runs. The first step is to set the Key used to cache directories.
@@ -134,6 +138,8 @@ pre:
   - bundle install --deployment
 ```
 
+<img width="1437" alt="image" src="https://user-images.githubusercontent.com/76988093/160451959-51b03200-9776-4b86-98ea-850e8f5dd3da.png">
+
 
 ### Artefacts Management
 
@@ -152,6 +158,9 @@ uploadArtefacts:
 
 HyperExecute also facilitates the provision to download the artefacts on your local machine. To download the artefacts, click on Artefacts button corresponding to the associated TestID.
 
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/76988093/160451835-5b15b142-de9b-4f67-b68b-586043b53eb1.png">
+
+
 ## Test Execution
 
 The CLI option *--config* is used for providing the custom HyperExecute YAML file (i.e. *hypertest_matrix.yaml*). Run the following command on the terminal to trigger the tests in Specs file Scenario on the HyperExecute grid.
@@ -163,7 +172,7 @@ The CLI option *--config* is used for providing the custom HyperExecute YAML fil
 Visit [HyperExecute Automation Dashboard](https://automation.lambdatest.com/hypertest) to check the status of execution:
 
 
-## Auto-Split Execution with Ruby-Rspecs
+## Auto-Split Execution with Ruby-Rspec framework
 
 Auto-split execution mechanism lets you run tests at predefined concurrency and distribute the tests over the available infrastructure. Concurrency can be achieved at different levels - file, module, test suite, test, scenario, etc.
 
@@ -241,6 +250,8 @@ The *testRunnerCommand* contains the command that is used for triggering the tes
 testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
 ```
 
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/76988093/160451685-5fd586a2-910b-4d75-929c-6e4d78e7825b.png">
+
 ### Artefacts Management
 
 The *mergeArtifacts* directive (which is by default *false*) is set to *true* for merging the artefacts and combing artefacts generated under each task.
@@ -258,9 +269,12 @@ uploadArtefacts:
 ```
 HyperExecute also facilitates the provision to download the artefacts on your local machine. To download the artefacts, click on *Artefacts* button corresponding to the associated TestID.
 
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/76988093/160451835-5b15b142-de9b-4f67-b68b-586043b53eb1.png">
+
+
 ### Test Execution
 
-The CLI option *--config* is used for providing the custom HyperExecute YAML file (i.e. *hypertest_matrix.yaml*). Run the following command on the terminal to trigger the tests in Python files on the HyperExecute grid. The *--download-artifacts* option is used to inform HyperExecute to download the artefacts for the job.
+The CLI option *--config* is used for providing the custom HyperExecute YAML file (i.e. *hypertest_matrix.yaml*). Run the following command on the terminal to trigger the tests in Ruby files on the HyperExecute grid. The *--download-artifacts* option is used to inform HyperExecute to download the artefacts for the job.
 
 ```bash
 ./concierge --config --verbose -i .hypertest_matrix.yaml
@@ -287,6 +301,7 @@ env:
   AccessKey: ${{.secrets.AccessKey}}
 ```
 
+
 ## Report Generation
 
 In case you want to generate hypertest report you can use below yaml directives and you can download report from button on dashboard and also you will find report under your frameWork also.
@@ -299,6 +314,9 @@ partialReports:
  type: html
 ```
 
+<img width="1434" alt="image" src="https://user-images.githubusercontent.com/76988093/160452546-4098d8dc-a2d3-45d1-ba18-b559209e4650.png">
+
+
 ## Navigation in Automation Dashboard
 
 HyperExecute lets you navigate from/to *Test Logs* in Automation Dashboard from/to *HyperExecute Logs*. You also get relevant get relevant Selenium test details like video, network log, commands, Exceptions & more in the Dashboard. Effortlessly navigate from the automation dashboard to HyperExecute logs (and vice-versa) to get more details of the test execution.
@@ -309,5 +327,3 @@ HyperExecute lets you navigate from/to *Test Logs* in Automation Dashboard from/
 * HyperExecute HomePage: https://www.lambdatest.com/support/docs/getting-started-with-hypertest/
 * Lambdatest HomePage: https://www.lambdatest.com
 
-## License
-Licensed under the [MIT license](LICENSE).
