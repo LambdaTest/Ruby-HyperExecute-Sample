@@ -1,0 +1,20 @@
+---
+version: "0.1"
+runson: win
+autosplit: true
+maxRetries: 5
+concurrency: 2
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: grep -nri -E 'it ".*." do' spec/*.rb | awk '{print$1}' | sed 's/\(.*\):/\1 /'
+testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
+pre:
+  - bundle install --deployment
+cacheKey: '{{ checksum "Gemfile.lock" }}'
+cacheDirectories:
+  - /vendor
+report: true
+partialReports:
+ location: rspec_results.html
+ type: html
