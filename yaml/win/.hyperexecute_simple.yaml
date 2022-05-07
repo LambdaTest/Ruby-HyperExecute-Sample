@@ -1,6 +1,6 @@
 ---
 version: "0.1"
-runson: linux
+runson: win
 autosplit: true
 maxRetries: 5
 concurrency: 2
@@ -18,3 +18,5 @@ report: true
 partialReports:
  location: rspec_results.html
  type: html
+env:
+   CONFIG_NAME: "win"

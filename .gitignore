@@ -5,4 +5,7 @@ concierge
 concierge.exe
 logs/
 nucleus.log
-artifacts
+artifacts/
+artifacts-old/
+hyperexecuteupdate
+rspec_results.html
