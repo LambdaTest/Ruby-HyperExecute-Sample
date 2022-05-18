@@ -1,0 +1,16 @@
+server: "hub.lambdatest.com"
+user: "LT_USERNAME"
+key: "LT_ACCESS_KEY"
+
+common_caps:
+  "build": "RSpec Selenium Demo"
+
+browser_caps:
+  -
+    "LT:Options":
+      "browserName": "chrome"
+      "version": "95"
+      "platform": "linux"
+      "selenium_version": "4.0.0"
+      "name": "RSpec HyperTest Test"
+      "build": "RSpec HyperTest Demo"

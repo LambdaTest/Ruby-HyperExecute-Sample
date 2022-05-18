@@ -10,8 +10,7 @@ browser_caps:
     "LT:Options":
       "browserName": "chrome"
       "version": "95"
-      "platform": "Windows 10"
-      # "platform": "MacOS Catalina"
+      "platform": "MacOS Catalina"
       "selenium_version": "4.0.0"
       "name": "RSpec HyperTest Test"
       "build": "RSpec HyperTest Demo"

@@ -1,0 +1,23 @@
+---
+version: "0.1"
+matrix:
+  os: [linux]
+  files: ["spec/todo_test1.rb", "spec/todo_test2.rb"]
+runson: ${matrix.os}
+testSuites:
+  - bundle exec rspec "$files" --format html --out rspec_results.html
+pre:
+  - bundle install --deployment
+cacheKey: '{{ checksum "Gemfile.lock" }}'
+cacheDirectories:
+  - /vendor
+uploadArtefacts:
+ - name: report
+   path:
+     - rspec_results.html
+report: true
+partialReports:
+ location: rspec_results.html
+ type: html
+env:
+   CONFIG_NAME: "linux"
