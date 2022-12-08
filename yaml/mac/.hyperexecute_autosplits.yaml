@@ -6,7 +6,7 @@ testSuiteStep: 90
 runson: mac
 autosplit: true
 retryOnFailure: true
-maxRetries: 5
+maxRetries: 1
 concurrency: 2
 testDiscovery:
   type: raw

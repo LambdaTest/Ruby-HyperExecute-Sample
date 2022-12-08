@@ -2,7 +2,7 @@
 version: "0.1"
 runson: linux
 autosplit: true
-maxRetries: 5
+maxRetries: 1
 concurrency: 2
 testDiscovery:
   type: raw
