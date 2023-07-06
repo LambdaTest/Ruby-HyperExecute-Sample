@@ -20,3 +20,5 @@ partialReports:
  type: html
 env:
    CONFIG_NAME: "linux"
+
+jobLabel: [selenium-Rspec, linux, autosplit-simple]
