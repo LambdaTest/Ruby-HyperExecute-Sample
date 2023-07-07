@@ -20,3 +20,5 @@ partialReports:
  type: html
 env:
    CONFIG_NAME: "win"
+
+jobLabel: [selenium-Rspec, win, autosplit-simple]
