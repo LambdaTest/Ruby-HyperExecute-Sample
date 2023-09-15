@@ -13,47 +13,94 @@ describe "Sample Playground steps" do
     textAddedItem = @driver.find_element(:css, "[class='list-unstyled'] li:nth-child(6) span").text
     expect(textAddedItem).to eq(itemName)
 
-     @driver.get("https://www.lambdatest.com/selenium-playground/" )
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Simple Form Demo')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Checkbox Demo')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Radio Buttons Demo')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Select Dropdown List')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Input Form Submit')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Ajax Form Submit')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'JQuery Select dropdown')]")}.click
-
-     @wait.until { @driver.find_element(:xpath, "//p[contains(text(),'Alert & Modals')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Alerts')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Modals')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Window Popup Modal')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Progress Bar Modal')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Javascript Alerts')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'File Download')]")}.click
-
-     @wait.until { @driver.find_element(:xpath, "//p[contains(text(),'Data Pickers')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Date Picker')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'JQuery Date Picker')]")}.click
-
-     @wait.until { @driver.find_element(:xpath, "//p[contains(text(),'Table')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Pagination')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Data Search')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Filter')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Sort & Search')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Data Download')]")}.click
-
-     @wait.until { @driver.find_element(:xpath, "//p[contains(text(),'Progress Bar & Sliders')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'JQuery Download Progress bars')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Progress bar')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Drag & Drop Sliders')]")}.click
-
-     @wait.until { @driver.find_element(:xpath, "//p[contains(text(),'List Box')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap List Box')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'JQuery List Box')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Data List Filter')]")}.click
-
-     @wait.until { @driver.find_element(:xpath, "//p[contains(text(),'Others')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Drag and Drop')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Dynamic Data Loading')]")}.click
-     @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Hover Demo')]")}.click
+    @driver.get("https://www.lambdatest.com/selenium-playground/" )
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Simple Form Demo')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Checkbox Demo')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Radio Buttons Demo')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Select Dropdown List')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Input Form Submit')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Ajax Form Submit')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'JQuery Select dropdown')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+ 
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Key Press')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Upload File Demo')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Download File Demo')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'JQuery Download Progress bars')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Progress bar')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Drag & Drop Sliders')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Alerts')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+ 
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Modals')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Window Popup Modal')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Progress Bar Modal')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+ 
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Javascript Alerts')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'File Download')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Date Picker')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap Date Picker')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Bootstrap List Box')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'JQuery List Box')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Data List Filter')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Pagination')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+ 
+ 
+ 
+ 
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Data Search')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Filter')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Sort & Search')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Table Data Download')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+ 
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Broken Image')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Drag and Drop')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Dynamic Data Loading')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Hover Demo')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Geolocation Testing')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Context Menu')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+ 
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Status Codes')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Redirection')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Virtual DOM')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+    @wait.until { @driver.find_element(:xpath, "//a[contains(text(),'Shadow DOM')]")}.click
+    @driver.get('https://www.lambdatest.com/selenium-playground/');
+ 
    end
 end
