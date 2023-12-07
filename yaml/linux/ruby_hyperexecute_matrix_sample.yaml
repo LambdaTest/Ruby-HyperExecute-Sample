@@ -3,30 +3,40 @@ version: "0.1"
 globalTimeout: 90
 testSuiteTimeout: 90
 testSuiteStep: 90
-runson: mac
-autosplit: true
+
+runson: ${matrix.os}
+
 retryOnFailure: true
 maxRetries: 1
 concurrency: 2
-testDiscovery:
-  type: raw
-  mode: dynamic
-  command: grep -nri -E 'it ".*." do' spec/*.rb | awk '{print$1}' | sed 's/\(.*\):/\1 /'
-testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
+parallel: 1
+
+matrix:
+  os: [linux]
+  files: ["spec/todo_test1.rb", "spec/todo_test2.rb"]
+
 pre:
   - bundle install --deployment
+
 cacheKey: '{{ checksum "Gemfile.lock" }}'
 cacheDirectories:
   - /vendor
+
+env:
+   CONFIG_NAME: "linux"
+
+testSuites:
+  - bundle exec rspec "$files" --format html --out rspec_results.html
+
+mergeArtifacts: true
 uploadArtefacts:
  - name: report
    path:
      - rspec_results.html
+
 report: true
 partialReports:
  location: rspec_results.html
  type: html
-env:
-   CONFIG_NAME: "mac"
 
-jobLabel: [selenium-Rspec, mac, autosplit]
+jobLabel: [selenium-Rspec, linux, matrix]
