@@ -41,4 +41,4 @@ partialReports:
 
 testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
 
-jobLabel: [selenium-Rspec, autosplit]
+jobLabel: [selenium-Rspec, hybrid]
