@@ -1,0 +1,44 @@
+version: "0.1"
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+
+runson: ${matrix.os}
+retryOnFailure: false
+autosplit: true
+maxRetries: 1
+parallelism: 1
+concurrency: 3
+
+matrix:
+  os: [mac, win, linux]
+
+env:
+   CONFIG_NAME: ${matrix.os}
+
+cacheKey: '{{ checksum "Gemfile.lock" }}'
+cacheDirectories:
+  - /vendor
+
+pre:
+  - bundle install --deployment
+
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: grep -nri -E 'it ".*." do' spec/*.rb | awk '{print$1}' | sed 's/\(.*\):/\1 /'
+
+mergeArtifacts: true
+uploadArtefacts:
+ - name: report
+   path:
+     - rspec_results.html
+
+report: true
+partialReports:
+ location: rspec_results.html
+ type: html
+
+testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
+
+jobLabel: [selenium-Rspec, hybrid]
