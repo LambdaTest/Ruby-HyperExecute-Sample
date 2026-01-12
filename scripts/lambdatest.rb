@@ -10,11 +10,43 @@ CONFIG['key'] = ENV['LT_ACCESS_KEY'] || CONFIG['key']
 
 RSpec.configure do |config|
   config.around(:example) do |example|
-    @caps = Selenium::WebDriver::Remote::Capabilities.new(CONFIG['common_caps'].merge(CONFIG['browser_caps'][0]))
-    @caps["name"] = ENV['name'] || example.metadata[:name] || example.metadata[:file_path].split('/').last.split('.').first
+    # Get browser configuration
+    browser_config = CONFIG['browser_caps'][0]
+    browser_name = browser_config['browserName'] || 'chrome'
+    
+    # Create browser-specific options using Selenium 4 approach
+    options = case browser_name.downcase
+              when 'chrome'
+                Selenium::WebDriver::Chrome::Options.new
+              when 'firefox'
+                Selenium::WebDriver::Firefox::Options.new
+              when 'edge', 'microsoftedge'
+                Selenium::WebDriver::Edge::Options.new
+              when 'safari'
+                Selenium::WebDriver::Safari::Options.new
+              else
+                Selenium::WebDriver::Chrome::Options.new
+              end
 
-    @driver = Selenium::WebDriver.for(:remote, url: "https://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub", desired_capabilities: @caps)
+    # Build LT:Options from config
+    lt_options = CONFIG['common_caps'].merge(browser_config['LT:Options'] || {})
+    lt_options['name'] = ENV['name'] || example.metadata[:name] || example.metadata[:file_path].split('/').last.split('.').first
+
+    # Set LambdaTest options capability
+    options.add_option('LT:Options', lt_options)
+    
+    # Set browser version and platform if specified
+    options.browser_version = browser_config['browserVersion'] if browser_config['browserVersion']
+    options.platform_name = browser_config['platformName'] if browser_config['platformName']
+
+    # Create remote WebDriver using capabilities array (Selenium 4 way)
+    @driver = Selenium::WebDriver.for(
+      :remote,
+      url: "https://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",
+      capabilities: [options]
+    )
     @wait = Selenium::WebDriver::Wait.new(timeout: 15)
+    
     begin
       example.run
     ensure

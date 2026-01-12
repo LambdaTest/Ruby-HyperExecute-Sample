@@ -7,10 +7,11 @@ common_caps:
 
 browser_caps:
   -
+    "browserName": "chrome"
+    "browserVersion": "latest"
+    "platformName": "Linux"
     "LT:Options":
-      "browserName": "chrome"
-      "version": "95"
-      "platform": "linux"
-      "selenium_version": "4.0.0"
+      "selenium_version": "4.27.0"
       "name": "RSpec HyperTest Test"
       "build": "RSpec HyperTest Demo"
+      "w3c": true
