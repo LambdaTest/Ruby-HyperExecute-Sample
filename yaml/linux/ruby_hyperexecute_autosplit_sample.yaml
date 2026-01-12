@@ -6,13 +6,18 @@ testSuiteStep: 90
 
 runson: linux
 
+runtime: 
+  language: ruby
+  version: "3.1.2"
+
 autosplit: true
 retryOnFailure: true
 maxRetries: 1
 concurrency: 2
 
 pre:
-  - bundle install --deployment
+  - bundle config set --local deployment 'true'
+  - bundle install
 
 cacheKey: '{{ checksum "Gemfile.lock" }}'
 cacheDirectories:

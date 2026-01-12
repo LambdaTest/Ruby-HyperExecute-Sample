@@ -21,7 +21,8 @@ cacheDirectories:
   - /vendor
 
 pre:
-  - bundle install --deployment
+  - bundle config set --local deployment 'true'
+  - bundle install
 
 testDiscovery:
   type: raw

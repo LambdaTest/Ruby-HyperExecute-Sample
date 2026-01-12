@@ -13,10 +13,11 @@ parallel: 1
 
 matrix:
   os: [linux]
-  files: ["spec/todo_test1.rb", "spec/todo_test2.rb"]
+  files: ["spec/login_test.rb", "spec/todo_test.rb"]
 
 pre:
-  - bundle install --deployment
+  - bundle config set --local deployment 'true'
+  - bundle install
 
 cacheKey: '{{ checksum "Gemfile.lock" }}'
 cacheDirectories:

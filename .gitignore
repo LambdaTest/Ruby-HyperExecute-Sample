@@ -9,3 +9,5 @@ artifacts/
 artifacts-old/
 hyperexecuteupdate
 rspec_results.html
+hyperexecute
+hyperexecute-cli.log
