@@ -26,7 +26,7 @@ pre:
 
 testDiscovery:
   type: raw
-  mode: dynamic
+  mode: remote
   command: grep -nri -E 'it ".*." do' spec/*.rb | awk '{print$1}' | sed 's/\(.*\):/\1 /'
 
 mergeArtifacts: true
