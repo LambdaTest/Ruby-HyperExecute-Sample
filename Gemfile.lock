@@ -27,10 +27,10 @@ GEM
       rubyzip (>= 1.2.2)
 
 PLATFORMS
+  ruby
   universal-darwin-19
   x64-mingw32
   x86_64-linux
-  ruby
 
 DEPENDENCIES
   ffi

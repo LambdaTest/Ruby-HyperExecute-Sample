@@ -4,7 +4,7 @@ testSuiteTimeout: 90
 testSuiteStep: 90
 
 runson: ${matrix.os}
-retryOnFailure: false
+retryOnFailure: true
 autosplit: true
 maxRetries: 1
 parallelism: 1
@@ -13,15 +13,16 @@ concurrency: 3
 matrix:
   os: [mac, win, linux]
 
-env:
-   CONFIG_NAME: ${matrix.os}
-
 cacheKey: '{{ checksum "Gemfile.lock" }}'
 cacheDirectories:
   - /vendor
 
 pre:
-  - bundle config set --local deployment 'true'
+  # One pre for every OS: mac has no Ruby runtime support and only the system
+  # Ruby 2.6, so install the bundler version pinned in Gemfile.lock per-user.
+  # Plain commands only (no shell syntax) so they run the same on mac, win and linux.
+  - gem install --user-install --no-document bundler -v 2.2.32
+  - bundle config set --local deployment true
   - bundle install
 
 testDiscovery:

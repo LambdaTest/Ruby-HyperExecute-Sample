@@ -6,18 +6,16 @@ testSuiteStep: 90
 
 runson: mac
 
-runtime: 
-  language: ruby
-  version: "3.1.2"
-
 autosplit: true
 retryOnFailure: true
 maxRetries: 1
 concurrency: 2
 
 pre:
-  - bundle config set --local deployment 'true'
-  - bundle install
+  # HyperExecute has no Ruby runtime for macOS, so use the system Ruby (2.6)
+  # with the bundler version pinned in Gemfile.lock, installed per-user
+  - bash -c 'gem install --user-install --no-document bundler -v 2.2.32'
+  - bash -c 'bundle config set --local deployment true && bundle install'
 
 cacheKey: '{{ checksum "Gemfile.lock" }}'
 cacheDirectories:

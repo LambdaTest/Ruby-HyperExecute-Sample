@@ -16,8 +16,10 @@ matrix:
   files: ["spec/login_test.rb", "spec/todo_test.rb"]
 
 pre:
-  - bundle config set --local deployment 'true'
-  - bundle install
+  # HyperExecute has no Ruby runtime for macOS, so use the system Ruby (2.6)
+  # with the bundler version pinned in Gemfile.lock, installed per-user
+  - bash -c 'gem install --user-install --no-document bundler -v 2.2.32'
+  - bash -c 'bundle config set --local deployment true && bundle install'
 
 cacheKey: '{{ checksum "Gemfile.lock" }}'
 cacheDirectories:

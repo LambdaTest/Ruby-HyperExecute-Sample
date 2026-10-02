@@ -2,7 +2,7 @@ require_relative '../scripts/lambdatest.rb'
 
 describe "ToDo App Tests" do
   before(:each) do
-    @test_url = "https://lambdatest.github.io/sample-todo-app/"
+    @test_url = "https://ltqa-frontend.lambdatestinternal.com/sample-todo-app/"
   end
 
   it "should check off todo items" do

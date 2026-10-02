@@ -11,3 +11,6 @@ hyperexecuteupdate
 rspec_results.html
 hyperexecute
 hyperexecute-cli.log
+hyperexecute
+.ruby-version
+vendor/

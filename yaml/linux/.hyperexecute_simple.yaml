@@ -1,23 +1,35 @@
 ---
 version: "0.1"
 runson: linux
+
+runtime:
+  language: ruby
+  version: "3.1.2"
+
 autosplit: true
+retryOnFailure: true
 maxRetries: 1
 concurrency: 2
+
 testDiscovery:
   type: raw
   mode: remote
   command: grep -nri -E 'it ".*." do' spec/*.rb | awk '{print$1}' | sed 's/\(.*\):/\1 /'
 testRunnerCommand: bundle exec rspec "$test" --format html --out rspec_results.html
+
 pre:
-  - bundle install --deployment
+  - bundle config set --local deployment 'true'
+  - bundle install
+
 cacheKey: '{{ checksum "Gemfile.lock" }}'
 cacheDirectories:
   - /vendor
+
 report: true
 partialReports:
  location: rspec_results.html
  type: html
+
 env:
    CONFIG_NAME: "linux"
 

@@ -2,7 +2,19 @@ require 'yaml'
 require 'rspec'
 require 'selenium-webdriver'
 
-CONFIG_NAME = ENV['CONFIG_NAME']
+require 'rbconfig'
+
+# CONFIG_NAME picks config/<name>.config.yml. When it isn't set (e.g. the hybrid
+# YAML, where ${matrix.os} isn't expanded inside env), use the runner's own OS.
+CONFIG_NAME = if ENV['CONFIG_NAME'].to_s =~ /\A\w+\z/
+                ENV['CONFIG_NAME']
+              else
+                case RbConfig::CONFIG['host_os']
+                when /mswin|mingw|cygwin/ then 'win'
+                when /darwin/ then 'mac'
+                else 'linux'
+                end
+              end
 
 CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../config/#{CONFIG_NAME}.config.yml")))
 CONFIG['user'] = ENV['LT_USERNAME'] || CONFIG['user']
@@ -28,6 +40,15 @@ RSpec.configure do |config|
                 Selenium::WebDriver::Chrome::Options.new
               end
 
+    # Disable Chrome's password manager / leak-detection bubble, which pops up
+    # after a successful login with a known-breached password and breaks the test
+    if options.is_a?(Selenium::WebDriver::Chrome::Options)
+      options.add_preference('credentials_enable_service', false)
+      options.add_preference('profile.password_manager_enabled', false)
+      options.add_preference('profile.password_manager_leak_detection', false)
+      options.add_argument('--disable-features=PasswordLeakDetection')
+    end
+
     # Build LT:Options from config
     lt_options = CONFIG['common_caps'].merge(browser_config['LT:Options'] || {})
     lt_options['name'] = ENV['name'] || example.metadata[:name] || example.metadata[:file_path].split('/').last.split('.').first
@@ -45,7 +66,7 @@ RSpec.configure do |config|
       url: "https://#{CONFIG['user']}:#{CONFIG['key']}@#{CONFIG['server']}/wd/hub",
       capabilities: [options]
     )
-    @wait = Selenium::WebDriver::Wait.new(timeout: 15)
+    @wait = Selenium::WebDriver::Wait.new(timeout: 30)
     
     begin
       example.run

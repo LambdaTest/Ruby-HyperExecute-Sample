@@ -6,6 +6,10 @@ testSuiteStep: 90
 
 runson: ${matrix.os}
 
+runtime:
+  language: ruby
+  version: "3.1.2"
+
 retryOnFailure: true
 maxRetries: 1
 concurrency: 2

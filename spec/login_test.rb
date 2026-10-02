@@ -29,7 +29,8 @@ describe "Login Page Tests" do
     login_button.click
     puts "Clicked Login button"
 
-    # Verify success message
+    # Wait for redirect to the secure area, then verify success message
+    @wait.until { @driver.current_url.include?("/secure") }
     @wait.until { @driver.find_element(:id, 'flash').displayed? }
     flash_message = @driver.find_element(:id, 'flash')
     message_text = flash_message.text
